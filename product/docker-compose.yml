@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  db:
+    container_name: isi-db
+    image: mysql:8.0.32
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'isi-db'
+      MYSQL_USER: 'isiadmin'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
