@@ -5,7 +5,6 @@ from django.http import JsonResponse
 def send_message(request, conversation_id):
     if request.method == 'POST':
         message = request.POST.get('message')
-        # Do something with the message, such as sending it to a chatbot or saving it to a database.
         response_data = {'status': 'success', 'conversation id': 'conversation_id'}
         return JsonResponse(response_data)
     else:
