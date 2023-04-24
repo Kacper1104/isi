@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   db:
-    container_name: isi-db
+    container_name: product-db
     image: mysql:8.0.32
     restart: always
     environment:
@@ -15,5 +15,17 @@ services:
       - '3306'
     volumes:
       - my-db:/var/lib/mysql
+  app:
+    depends_on:
+      - db
+    container_name: product-api
+    build: ./
+    restart: on-failure
+    ports:
+      - 8080:8080
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
 volumes:
   my-db:
