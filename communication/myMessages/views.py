@@ -13,12 +13,12 @@ def send_message(request, conversation_id):
         return JsonResponse(response_data)
     else:
         messages = Message.get_messages(conversation_id)
-        response_data = {'status': 'error', 'messages': messages}
-        return JsonResponse(response_data, status=400)
+        response_data = {'status': 'success', 'messages': messages}
+        return JsonResponse(response_data, status=200)
 
 
 def my_conversations(request, user_id):
     if request.method == 'GET':
         conversations = Conversation.get_conversations_for_user(user_id)
         response_data = {'status': 'success', 'conversations': conversations}
-        return JsonResponse(response_data, status=400)
+        return JsonResponse(response_data, status=200)
