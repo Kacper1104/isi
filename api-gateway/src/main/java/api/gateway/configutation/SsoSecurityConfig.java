@@ -1,4 +1,4 @@
-package api.product.offer.configutation;
+package api.gateway.configutation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
