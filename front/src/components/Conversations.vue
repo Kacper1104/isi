@@ -1,8 +1,8 @@
 <template>
     <div>
-      <h2>List of items:</h2>
+      <h2>Lista konwersacji:</h2>
       <ul>
-        <router-link v-for="(message, index) in items" :key="index" :to="'/messages/my/' + message.pk">
+        <router-link v-for="(message, index) in items" :key="index" :to="'/messages/id/' + message.pk">
           <li>{{ message.fields }}</li>
         </router-link>
       </ul>
