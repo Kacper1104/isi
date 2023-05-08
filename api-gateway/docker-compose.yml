@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   db:
-    container_name: product-db
+    container_name: api-gateway-db
     image: mysql:8.0.32
     restart: always
     environment:
@@ -12,17 +12,17 @@ services:
     ports:
       - '3306:3306'
     expose:
-      - '3306'
+      - '3307'
     volumes:
       - my-db:/var/lib/mysql
   app:
     depends_on:
       - db
-    container_name: product-api
+    container_name: api-gateway
     build: ./
     restart: on-failure
     ports:
-      - 8081:8081
+      - 8080:8080
     volumes:
       - .m2:/root/.m2
     stdin_open: true
