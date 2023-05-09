@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from myMessages.models import Conversation, Message
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
+
+@csrf_exempt
 def send_message(request, conversation_id):
     if request.method == 'POST':
-        message = request.POST.get('message')
+        message = request.POST.get('text')
         sender_id = 1
-        text = 'test'
-        Message.send_message(conversation_id, sender_id, text)
+        Message.send_message(conversation_id, sender_id, message)
 
         response_data = {'status': 'success', 'conversation id': 'conversation_id'}
         return JsonResponse(response_data)
