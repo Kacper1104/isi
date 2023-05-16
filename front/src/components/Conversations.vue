@@ -1,9 +1,9 @@
 <template>
     <div>
-      <h2>Lista konwersacji:</h2>
+      <h1>Lista konwersacji:</h1>
       <ul>
         <router-link v-for="(message, index) in items" :key="index" :to="'/messages/id/' + message.pk">
-          <li>{{ message.fields }}</li>
+          <li>Konwersacja z użytkownikiem: {{ message.fields.sender_id }}</li>
         </router-link>
       </ul>
     </div>
@@ -21,4 +21,17 @@ export default {
 h2 {
   color: blue;
 }
+
+li{
+  font-size: 1.5rem;
+  background-color: black;
+  padding: 10px;
+  border-radius: 50px;
+  ;
+}
+
+li:hover{
+  background-color: rgba(0, 0, 0, 0.301);
+}
 </style>
+
